@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kalkulator Rasio Splitter FTTH - VNET MEDIA</title>
@@ -14,7 +13,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://rasio.vnetmedia.my.id/">
 
-  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Kalkulator Rasio Splitter FTTH - VNET MEDIA">
   <meta property="og:description" content="Tool kalkulasi redaman dan rasio splitter untuk teknisi fiber optik.">
   <meta property="og:image" content="https://rasio.vnetmedia.my.id/dashboard.png">
@@ -35,18 +34,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   
   <meta name="theme-color" content="#2a39e4">
-</head>
 
   <style>
     body {
-      background-color: white;
+      background-color: #2a39e4;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
 
     .container {
-      margin-top: 50px;
+      margin-top: 60px;
       max-width: 450px;
       padding-bottom: 100px;
     }
@@ -78,23 +76,32 @@
       object-fit: contain;
     }
 
+    .navbar-text {
+      font-size: 14px;
+    }
+
     footer.fixed-footer {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       width: 100%;
-      background: linear-gradient(to right, #2a39e4, #2a39e4);
+      background: linear-gradient(to right, #007bff, #007bff);
       color: white;
       text-align: center;
-      padding: 1px 1px;
+      padding: 6px 10px;
       margin: 0;
       z-index: 9999;
-      line-height: 1;
+      line-height: 1.2;
+      font-size: 12px;
+    }
+
+    footer.fixed-footer p {
+      margin: 1px 0;
     }
 
     footer.fixed-footer a {
-      color: #00f;
+      color: #0000cb;
       text-decoration: underline;
       font-weight: bold;
     }
@@ -102,12 +109,11 @@
     /* RESPONSIVE DROPDOWN */
     @media (max-width: 991.98px) {
       .navbar-collapse {
-        background-color: #2a39e4;
+        background-color: #3a01ea6b;
         position: absolute;
         top: 55px;
         left: 0;
         right: 0;
-        width: 100%;
         z-index: 999;
         padding: 10px 15px;
       }
@@ -120,7 +126,7 @@
       }
 
       .navbar-nav .nav-link:hover {
-        background-color: #1e2bd0;
+        background-color: #f0ecfc6b;
         color: white !important;
       }
 
@@ -137,10 +143,7 @@
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="logo.png" alt="Logo">
       <span class="ml-2 d-none d-sm-inline sr-only">VNET-MEDIA</span>
-
     </a>
-
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
       aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -151,6 +154,7 @@
         <li class="nav-item"><a class="nav-link" href="https://vnetmedia.my.id/">Beranda</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Kalkulator</a></li>
       </ul>
+      <span class="navbar-text text-white ml-3 d-none d-lg-inline" id="greeting"></span>
     </div>
   </nav>
 
@@ -171,31 +175,31 @@
           <div class="form-group">
             <label for="splitterRatio">Persen Rasio Splitter Ratio</label>
             <select class="form-control" id="splitterRatio">
-                            <option value="0_0">Tanpa Rasio Bozz</option>
-                            <option value="20.20_0.24">1:99</option>
-                            <option value="17.19_0.29">2:98</option>
-                            <option value="15.43_0.33">3:97</option>
-                            <option value="14.18_0.38">4:96</option>
-                            <option value="13.21_0.42">5:95</option>
-                            <option value="12.42_0.47">6:94</option>
-                            <option value="11.75_0.52">7:93</option>
-                            <option value="11.17_0.56">8:92</option>
-                            <option value="10.66_0.61">9:91</option>
-                            <option value="10.20_0.66">10:90</option>
-                            <option value="9.41_0.76">12:88</option>
-                            <option value="8.44_0.91">15:85</option>
-                            <option value="7.65_1.06">18:82</option>
-                            <option value="7.19_1.17">20:80</option>
-                            <option value="6.78_1.28">22:78</option>
-                            <option value="6.22_1.45">25:75</option>
-                            <option value="5.73_1.63">28:72</option>
-                            <option value="5.43_1.75">30:70</option>
-                            <option value="4.76_2.07">35:65</option>
-                            <option value="4.18_2.42">40:60</option>
-                            <option value="3.67_2.80">45:55</option>
-                            <option value="3.21_3.21">50:50</option>
-                            <option value="7_7">extra 1:4</option>
-                            <option value="10_10">extra 1:8</option>
+              <option value="0_0">Tanpa Rasio Bozz</option>
+              <option value="20.20_0.24">1:99</option>
+              <option value="17.19_0.29">2:98</option>
+              <option value="15.43_0.33">3:97</option>
+              <option value="14.18_0.38">4:96</option>
+              <option value="13.21_0.42">5:95</option>
+              <option value="12.42_0.47">6:94</option>
+              <option value="11.75_0.52">7:93</option>
+              <option value="11.17_0.56">8:92</option>
+              <option value="10.66_0.61">9:91</option>
+              <option value="10.20_0.66">10:90</option>
+              <option value="9.41_0.76">12:88</option>
+              <option value="8.44_0.91">15:85</option>
+              <option value="7.65_1.06">18:82</option>
+              <option value="7.19_1.17">20:80</option>
+              <option value="6.78_1.28">22:78</option>
+              <option value="6.22_1.45">25:75</option>
+              <option value="5.73_1.63">28:72</option>
+              <option value="5.43_1.75">30:70</option>
+              <option value="4.76_2.07">35:65</option>
+              <option value="4.18_2.42">40:60</option>
+              <option value="3.67_2.80">45:55</option>
+              <option value="3.21_3.21">50:50</option>
+              <option value="7_7">extra 1:4</option>
+              <option value="10_10">extra 1:8</option>
             </select>
           </div>
 
@@ -229,19 +233,15 @@
   </div>
 
   <!-- Footer -->
-<footer class="fixed-footer">
-  <p class="mb-1">© 2024 <a href="https://vnetmedia.my.id" target="_blank">vnet-media</a>Dibuat dengan ❤️ untuk teknisi lapangan</p></p>
-  <p class="mb-0">
-  <div style="margin-top: 1px;">
-    <small>Pengunjung Menggunakan</small><br>
-<a href="https://www.hitwebcounter.com" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=21008743&style=0025&nbdigits=1&type=page&initCount=300" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>                                    
-                                                                       
-                                    
-    </a>
-  </div>
-</footer>
-
+  <footer class="fixed-footer">
+    <p>© 2024 <a href="https://vnetmedia.my.id" target="_blank">vnet-media</a> - Dibuat dengan ❤️ untuk teknisi lapangan</p>
+    <div>
+      <small>Pengunjung menggunakan:</small><br>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img src="https://hitwebcounter.com/counter/counter.php?page=21008743&style=0025&nbdigits=1&type=page&initCount=300" title="Counter Widget" alt="Visit counter For Websites" border="0" />
+      </a>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -280,22 +280,19 @@
         $('#inputLaser').val($('#nextOdp').val());
       });
     });
+
+    function getGreeting() {
+      const hour = new Date().getHours();
+      if (hour >= 5 && hour < 10) return "Selamat pagi, teknisi VNET!";
+      else if (hour >= 10 && hour < 14) return "Selamat siang, semangat kerja!";
+      else if (hour >= 14 && hour < 18) return "Selamat sore, tetap semangat!";
+      else if (hour >= 18 && hour < 22) return "Selamat malam, waktunya istirahat!";
+      else return "Waktunya tidur, jangan begadang!";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("greeting").textContent = getGreeting();
+    });
   </script>
-<script>
-  function getGreeting() {
-    const hour = new Date().getHours();
-    if (hour >= 5 && hour < 10) return "Selamat pagi, teknisi VNET!";
-    else if (hour >= 10 && hour < 14) return "Selamat siang, semangat kerja!";
-    else if (hour >= 14 && hour < 18) return "Selamat sore, tetap semangat!";
-    else if (hour >= 18 && hour < 22) return "Selamat malam, waktunya istirahat!";
-    else return "Waktunya tidur, jangan begadang!";
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const greetingText = getGreeting();
-    document.getElementById("greeting").textContent = greetingText;
-  });
-</script>
-
 </body>
 </html>
